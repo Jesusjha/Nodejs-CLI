@@ -1,0 +1,25 @@
+{
+  "name": "nodefilm-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jesusjha/Nodejs-CLI.git"
+  },
+  "author": "Jesus Herrera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jesusjha/Nodejs-CLI/issues"
+  },
+  "homepage": "https://github.com/Jesusjha/Nodejs-CLI#readme",
+  "dependencies": {
+    "commander": "^9.4.0",
+    "dotenv": "^16.0.2",
+    "nodemon": "^2.0.19"
+  }
+}
