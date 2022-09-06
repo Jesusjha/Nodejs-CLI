@@ -2,14 +2,14 @@ import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 
 require('dotenv').config({ path: '../.env' });
-const { Command } = require('commander');
+import { Command } from 'commander';
 
 // Import Ora to spinner and Chalk to colored text
 import ora from 'ora';
 import chalk from 'chalk';
 
 const apiKey = process.env.API_KEY;
-const https = require('https');
+import https from 'https'
 
 const program = new Command();
 
@@ -34,12 +34,12 @@ program
 			spinner.color = 'white';
 			spinner.text = 'Loading rainbows';
 			spinner.succeed('Succeed');
-		}, 3000);
+		}, 2000);
 
-		const page = 1;
+		// const page = 2;
 
 		https.get(
-			`https://api.themoviedb.org/3/person/popular?api_key=${apiKey}&page=${page}`,
+			`https://api.themoviedb.org/3/person/popular?api_key=${apiKey}&page=${load.page}`,
 			(resp) => {
 				let data = '';
 
@@ -49,10 +49,13 @@ program
 				});
 
 				resp.on('end', () => {
-					console.log(JSON.parse(data).explanation);
+					console.log(JSON.parse(data));
 				});
 			}
-		);
+		)
+    .on('error', (error) => {
+      console.log('error: ' + error.message);
+    })
 	});
 
 program.parse(process.argv);
