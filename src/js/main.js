@@ -39,7 +39,6 @@ program
 				resp.on('end', () => {
 					const dataJSON = JSON.parse(data)
 					const pagination = dataJSON.total_pages;
-					console.log(JSON.parse(data))
 					
           setTimeout(() => {
             spinner.clear()
@@ -103,8 +102,7 @@ program
 		resp.on('end', () => {
 			const dataJSON = JSON.parse(data)
 			const { name, id, birthday, place_of_birth, known_for_department, biography,also_known_as } = dataJSON;
-			// console.log(dataJSON.name)
-			console.log(dataJSON);
+			
 			setTimeout(() => {
 				spinner.clear()
 				console.log('\n',chalk.white('----------------------------------------'));
@@ -125,14 +123,11 @@ program
 				:
 				console.log('\n',chalk.yellow.bold(name + 'doesn\'t have any alternate names', '\n'))
 
-
-
 				spinner.succeed('Person data loaded')
 			}, 1500);
 		});
-
 	})
-
+	
 .on('error', (error) => {
 	console.log('Error: ' + error.message);
 	spinner.fail('Your request has failed')
